@@ -1,0 +1,10 @@
+body {
+  background-color: #FCBF49; }
+  body h1 {
+    color: #003049; }
+  body main section {
+    display: flex; }
+    body main section img {
+      width: 200px;
+      height: auto;
+      margin: 2rem; }

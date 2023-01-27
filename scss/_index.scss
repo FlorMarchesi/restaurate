@@ -1,0 +1,18 @@
+body {
+  background-color: $orange-hell;
+
+  h1 {
+    color: $dark;
+  }
+
+  main{
+    section{
+      display: flex;
+      img{
+        width: 200px;
+        height: auto;
+        margin: 2rem;
+      }
+    }
+  }
+}

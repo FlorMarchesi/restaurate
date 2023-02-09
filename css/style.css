@@ -1,5 +1,16 @@
+* {
+  font-size: 18px;
+  margin: 0;
+  padding: 0; }
+
 body {
-  background-color: #FCBF49; }
+  background-color: #F77F00;
+  color: #003049; }
+  body nav {
+    background-color: #003049;
+    color: #F77F00; }
+    body nav .colorTituloNav {
+      color: #F77F00; }
   body h1 {
     color: #003049; }
   body main section {
@@ -8,3 +19,16 @@ body {
       width: 200px;
       height: auto;
       margin: 2rem; }
+  body main p {
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 1.2rem;
+    margin: 0 3rem; }
+  body main .botonesNavScroll {
+    background-color: #003049;
+    color: #F77F00; }
+  body h4 {
+    margin: 3rem;
+    padding: 2rem;
+    background-color: #003049;
+    color: #F77F00; }

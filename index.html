@@ -13,27 +13,30 @@
 </head>
 <body>
   <!-- NAV -->
-<nav class="container-fluid navbar navbar-expand-lg bg-light">
+<nav class="container-fluid navbar navbar-expand-lg">
   <div class="container-fluid justify-content-between">
-    <a class="navbar-brand" href="#">Restaurate</a>
+    <a class="navbar-brand colorTituloNav" href="#">Restaurate</a>
     <!-- Boton de carrito con modal (ventana emergente) -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button type="button" id="idCarritoBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   <i class="fa-solid fa-cart-shopping"></i>
 </button>
 </div>
 </nav>
 <!-- NAV -->
 
-<!-- Modal -->
+<!-- Modal Carrito -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Su Pedido</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        ...
+      <!-- En este Div se construye mediante JS todo el contenido del carrito -->
+      <div>
+        <div id="idCarritoModal" class="modal-body">
+        </div>
+        <p id="precioTotal"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -48,7 +51,7 @@
     <p>Si estas buscando un menú personalizado, estas en el lugar indicado!</p>
     <p>Elije el plato que quieras con una bebida y postre. Nosotros te lo mandamos a casa.</p>
 <!-- Nav entre opciones de menú -->
-<nav id="navbar-example2" class="navbar px-3 mb-3">
+<nav id="navbar-example2" class="navbar px-3 mb-3 container-fluid">
   <ul class="nav nav-pills">
     <li class="nav-item">
       <a class="nav-link" href="#scrollspyHeading1">Elije tu plato favorito</a>
@@ -62,7 +65,7 @@
   </ul>
 </nav>
 <!-- Nav entre opciones de menú -->
-<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-2" tabindex="0">
   <div>
     <h4 id="scrollspyHeading1">Elije tu plato favorito</h4>
     <div class="container">
@@ -95,6 +98,6 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
 </script>
   <!-- Script JS propio -->
-  <script src="js/js.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

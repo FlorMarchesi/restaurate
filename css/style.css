@@ -4,19 +4,17 @@
   padding: 0; }
 
 body {
-  background-color: #F77F00;
-  color: #003049; }
+  background-color: #dfe6e9;
+  color: #2d3436; }
   body nav {
-    background-color: #003049;
-    color: #F77F00; }
-    body nav .colorTituloNav {
-      color: #F77F00; }
+    background-color: #2d3436;
+    color: #dfe6e9; }
   body h1 {
-    color: #003049; }
+    color: #2d3436; }
   body main section {
     display: flex; }
     body main section img {
-      width: 200px;
+      width: 150px;
       height: auto;
       margin: 2rem; }
   body main p {
@@ -25,10 +23,10 @@ body {
     padding: 1.2rem;
     margin: 0 3rem; }
   body main .botonesNavScroll {
-    background-color: #003049;
-    color: #F77F00; }
+    background-color: #dfe6e9;
+    color: #2d3436; }
   body h4 {
     margin: 3rem;
     padding: 2rem;
-    background-color: #003049;
-    color: #F77F00; }
+    background-color: #2d3436;
+    color: #dfe6e9; }

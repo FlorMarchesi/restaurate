@@ -12,12 +12,13 @@ let carritoBtn = document.getElementById("idCarritoBtn")
 let carritoModal = document.getElementById("idCarritoModal")
 // Productor en el carrito
 let productosEnCarrito
-if(localStorage.getItem("carrito")){
+/* if(localStorage.getItem("carrito")){
     productosEnCarrito = JSON.parse(localStorage.getItem("carrito"))
 }else{
     productosEnCarrito = []
     localStorage.setItem("carrito", productosEnCarrito)
-}
+} */
+localStorage.getItem("carrito") ? productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) : productosEnCarrito = [], localStorage.setItem("carrito", productosEnCarrito)
 // DOM
 
 // FUNCIONES
@@ -47,11 +48,11 @@ function mostrarOpciones(array){
         opcionesDivPlato.appendChild(nuevoMenuDiv)
       }
       //Card para las BEBIDAS
-      if(opcion.id>5 && opcion.id<11){
+      else if(opcion.id>5 && opcion.id<11){
         opcionesDivBebida.appendChild(nuevoMenuDiv)
       }
       //Card para los POSTRES
-      if(opcion.id >10 && opcion.id<14){
+      else if(opcion.id >10 && opcion.id<14){
         opcionesDivPostre.appendChild(nuevoMenuDiv)
       }else{}
 

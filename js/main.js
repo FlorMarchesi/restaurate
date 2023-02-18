@@ -11,20 +11,15 @@ let carritoBtn = document.getElementById("idCarritoBtn")
 // Cuerpo del carrito
 let carritoModal = document.getElementById("idCarritoModal")
 // Productor en el carrito
-let productosEnCarrito
-/* if(localStorage.getItem("carrito")){
-    productosEnCarrito = JSON.parse(localStorage.getItem("carrito"))
-}else{
-    productosEnCarrito = []
-    localStorage.setItem("carrito", productosEnCarrito)
-} */
-localStorage.getItem("carrito") ? productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) : productosEnCarrito = [], localStorage.setItem("carrito", productosEnCarrito)
+console.log(JSON.parse(localStorage.getItem("carrito")))
+let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [] // OPERADOR OR
+
+productosEnCarrito == [] && localStorage.setItem("carrito", productosEnCarrito)
 // DOM
 
 // FUNCIONES
 
 // Función card de productos
-// Creo una función que me imprimirá las opciones automáticamente gracias al Array. Si agrego más opciones o quito alguna, se verá reflejado en la página
 function mostrarOpciones(array){
   opcionesDivPlato.innerHTML  = ""
   opcionesDivBebida.innerHTML = ""
@@ -58,16 +53,13 @@ function mostrarOpciones(array){
 
       let agregarBtn = document.getElementById(`agregarBtn${opcion.id}`)
         agregarBtn.onclick = ()=>{
-
             agregarAlCarrito(opcion)
     }
-}
-}
+}}
 // Función card de productos
 
 // Funciónes carrito
 function cargarProductosCarrito(array){
-    //console.log("Funciona btn render carrito")
     carritoModal.innerHTML = ""
     array.forEach((productoCarrito)=>{
 
@@ -86,12 +78,10 @@ function cargarProductosCarrito(array){
          //segundo forEach agregar function eliminar
      array.forEach((productoCarrito)=>{
         document.getElementById(`botonEliminar${productoCarrito.id}`).addEventListener("click", ()=>{
-            // console.log("btn eliminar funciona")
             //borrar del DOM
             let cardProducto = document.getElementById(`productoCarrito${productoCarrito.id}`)
             cardProducto.remove()
             //eliminar del array
-            //busco prod a eliminar
             let productoEliminar = array.find(opcion => opcion.id == productoCarrito.id)
             console.log(productoEliminar)
             //busco el indice
@@ -110,28 +100,15 @@ function cargarProductosCarrito(array){
 }
 
 
-// Agregar un procuto al carrito
+// Agregar un producto al carrito
 function agregarAlCarrito(opcion){
-    console.log(opcion)
-    productosEnCarrito.push(opcion)
-    //setearlo en storage
-    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
-    console.log(productosEnCarrito)
     //evaluar si ya existe o no el producto
     let productoAgregado = productosEnCarrito.find((elem)=> elem.id == opcion.id)
-    console.log(productoAgregado)
-    if(productoAgregado == undefined){
-        console.log(`El producto ${opcion.nombre} ha sido agregado al carrito y vale ${opcion.precio}`)
-        //sumarlo a productosEnCarrito
-        productosEnCarrito.push(opcion)
-        //setearlo en storage
-        localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
-         console.log(productosEnCarrito)
-        //sweetalert para experiencia de usuario
-    }else{
-        //el producto ya se encuentra
-        console.log(`El producto ${opcion.nombre} ya se encuentra en el carrito`)
-    }
+    console.log(productoAgregado) //Si es UNDEFINED es porque no se encuentra en el carrito
+
+    //Operador ternario
+    productoAgregado == undefined ? (console.log(`El producto ${opcion.nombre} ha sido agregado al carrito y vale ${opcion.precio}`),productosEnCarrito.push(opcion),localStorage.setItem("carrito", JSON.stringify(productosEnCarrito)),   console.log(productosEnCarrito)) : (console.log(`El producto ${opcion.nombre} ya se encuentra en el carrito`))
+
 }
 
   let precioTotal = document.getElementById("precioTotal")

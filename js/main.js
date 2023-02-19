@@ -14,7 +14,8 @@ let carritoModal = document.getElementById("idCarritoModal")
 console.log(JSON.parse(localStorage.getItem("carrito")))
 let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [] // OPERADOR OR
 
-productosEnCarrito == [] && localStorage.setItem("carrito", productosEnCarrito)
+productosEnCarrito == [] && localStorage.setItem("carrito", productosEnCarrito) // OPERADOR AND
+
 // DOM
 
 // FUNCIONES
@@ -107,9 +108,17 @@ function agregarAlCarrito(opcion){
     console.log(productoAgregado) //Si es UNDEFINED es porque no se encuentra en el carrito
 
     //Operador ternario
-    productoAgregado == undefined ? (console.log(`El producto ${opcion.nombre} ha sido agregado al carrito y vale ${opcion.precio}`),productosEnCarrito.push(opcion),localStorage.setItem("carrito", JSON.stringify(productosEnCarrito)),   console.log(productosEnCarrito)) : (console.log(`El producto ${opcion.nombre} ya se encuentra en el carrito`))
+    productoAgregado == undefined ? (console.log(`El producto ${opcion.nombre} ha sido agregado al carrito y vale ${opcion.precio}`), productosEnCarrito.push(opcion),localStorage.setItem("carrito", JSON.stringify(productosEnCarrito)),   console.log(productosEnCarrito)) : (console.log(`El producto ${opcion.nombre} ya se encuentra en el carrito`))
 
-}
+    //agregado Toastify:
+    Toastify({
+      text: "El producto se ha agregado al carrito!",
+      duration: 3000,
+      style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
+  }
 
   let precioTotal = document.getElementById("precioTotal")
 function compraTotal(array){
@@ -133,3 +142,5 @@ carritoBtn.addEventListener("click", ()=>{
 // EVENTOS
 
 mostrarOpciones(opciones);
+
+

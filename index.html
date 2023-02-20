@@ -19,7 +19,7 @@
     <div class="container-fluid justify-content-between">
       <a class="navbar-brand colorTituloNav" href="#">Restaurate</a>
     <!-- Boton de carrito con modal (ventana emergente) -->
-      <button type="button" id="idCarritoBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <button type="button" id="idCarritoBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
         <i class="fa-solid fa-cart-shopping"></i>
       </button>
     </div>
@@ -27,26 +27,101 @@
 <!-- NAV -->
 
 <!-- Modal Carrito -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Su Pedido</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <!-- En este Div se construye mediante JS todo el contenido del carrito -->
-      <div>
-        <div id="idCarritoModal" class="modal-body"></div>
-        <p id="precioTotal"></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" id="btnConfirmarPedido" class="btn btn-primary">Confirmar pedido</button>
+    <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Su Pedido</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        <!-- En este Div se construye mediante JS todo el contenido del carrito -->
+          <div>
+            <div id="idCarritoModal" class="modal-body"></div>
+            <p id="precioTotal"></p>
+          </div>
+        <!-- En este Div se construye mediante JS todo el contenido del carrito -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Pagar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-  <!-- Modal -->
+    <!-- Modal Rellenar datos de compra -->
+    <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Finalice su compra</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+      <!-- Formulario de Compra -->
+          <div class="modal-body">
+            <form class="row g-3 needs-validation was-validated" novalidate="">
+              <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="validationCustom01" value="Mark" required="">
+                <div class="valid-feedback">
+                  Se ve bien!
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="validationCustom03" required="">
+                <div class="invalid-feedback">
+                  Por favor ingrese su dirección.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">Ciudad</label>
+                <input type="text" class="form-control" id="validationCustom03" required="">
+                <div class="invalid-feedback">
+                  Por favor ingrese su ciudad.
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="validationCustom05" class="form-label">CP</label>
+                <input type="number" class="form-control" id="validationCustom05" required="">
+                <div class="invalid-feedback">
+                  Por favro ingrese su Código Postal.
+                </div>
+              </div>
+              <div>
+              <div class="col-md-5">
+                <label for="validationCustom03" class="form-label">Número de Tarjeta</label>
+                <input type="number" class="form-control" id="validationCustom03" required="">
+                <div class="invalid-feedback">
+                  Por favro ingrese un número válido.
+                </div>
+              </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+                  <label class="form-check-label" for="invalidCheck">
+                    Acepto los términos y condiciones.
+                  </label>
+                  <div class="invalid-feedback">
+                    Debe aceptar para poder finalizar su pedido.
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+      <!-- Formulario de Compra -->
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" data-bs-dismiss="modal" id="btnConfirmarCompra" class="btn btn-success btn-primary">Confirmar pedido</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Modal Rellenar datos de compra -->
+  <!-- Modal Carrito -->
+
+
+
 
   <main>
     <p>Si estas buscando un menú personalizado, estas en el lugar indicado!</p>
@@ -100,7 +175,7 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
   </script>
 <!-- Script Sweet Alert -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--Script Toastify -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <!-- Script JS propio -->

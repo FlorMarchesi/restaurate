@@ -108,16 +108,26 @@ function agregarAlCarrito(opcion){
     console.log(productoAgregado) //Si es UNDEFINED es porque no se encuentra en el carrito
 
     //Operador ternario
-    productoAgregado == undefined ? (console.log(`El producto ${opcion.nombre} ha sido agregado al carrito y vale ${opcion.precio}`), productosEnCarrito.push(opcion),localStorage.setItem("carrito", JSON.stringify(productosEnCarrito)),   console.log(productosEnCarrito)) : (console.log(`El producto ${opcion.nombre} ya se encuentra en el carrito`))
-
-    //agregado Toastify:
+    productoAgregado == undefined ? (
+    productosEnCarrito.push(opcion),
+    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito)),
+    console.log(productosEnCarrito),
+    //Toastify alerta producto agregado
     Toastify({
       text: "El producto se ha agregado al carrito!",
       duration: 3000,
       style: {
-      background: "linear-gradient(to right, #00b09b, #96c93d)",
-      },
-    }).showToast();
+      background: "linear-gradient(to right, #085078, #85D8CE)",
+      }
+    }).showToast()) :
+    //Toastify alerta producto ya se encuentra en el carrito
+    Toastify({
+      text: "El producto ya se encuentra en el carrito!",
+      duration: 1500,
+      style: {
+      background: "linear-gradient(to right, #FF8008, #FFC837)",
+      }
+    }).showToast()
   }
 
   let precioTotal = document.getElementById("precioTotal")
@@ -133,12 +143,46 @@ function compraTotal(array){
     precioTotal.innerHTML = `El total del carrito es <strong>${acumulador}</strong>`
 }
 
+
+//Confirmar compra
+  //Modal ingreso de datos
+  /* pagoModal.addEventListener("click", ()=>{
+    //Alerta Confirmación pedido
+    document.getElementById("btnEnviarCompra")
+  swal(
+    "Gracias!",
+    "Pedido confirmado",
+    "success")
+
+  //Validar lo datos (click)
+
+//Limpiar Carrito
+    carritoModal.innerHTML = ""
+}) */
+
+
+let pagoModal = document.getElementById("btnConfirmarCompra").addEventListener("click", ()=>{
+
+  //Alerta Confirmación pedido
+  Swal.fire({
+  title:'Gracias!',
+  text: 'Pedido confirmado',
+  icon: 'success',
+  showConfirmButton: false,
+  timer: 1500
+})
+//Limpiar Carrito
+    carritoModal.innerHTML = ""
+})
+
 // FUNCIONES
 
 // EVENTOS
+//Abrir carrito
 carritoBtn.addEventListener("click", ()=>{
   cargarProductosCarrito(productosEnCarrito)
 })
+
 // EVENTOS
 
 mostrarOpciones(opciones);

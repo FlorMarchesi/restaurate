@@ -10,11 +10,24 @@ let opcionesDivPostre = document.getElementById("menu_postre")
 let carritoBtn = document.getElementById("idCarritoBtn")
 // Cuerpo del carrito
 let carritoModal = document.getElementById("idCarritoModal")
-// Productor en el carrito
-console.log(JSON.parse(localStorage.getItem("carrito")))
+// Boton pagar
+let pagarBtn = document.getElementById("pagarBtn")
+// Productos en el carrito
+/* console.log(JSON.parse(localStorage.getItem("carrito")))
 let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [] // OPERADOR OR
 
-productosEnCarrito == [] && localStorage.setItem("carrito", productosEnCarrito) // OPERADOR AND
+productosEnCarrito = [] && localStorage.setItem("carrito", productosEnCarrito) // OPERADOR AND */ //Dejó de funcionar y no encuentro solución
+
+let productosEnCarrito
+if(localStorage.getItem("carrito")){
+    productosEnCarrito = JSON.parse(localStorage.getItem("carrito"))
+    /* initCartHTML(productosEnCarrito)
+    cantidadCarrito.innerText = productosEnCarrito.reduce((acc, cant) => acc + cant.quantity, 0)
+    console.log(cantidadCarrito) */
+}else{
+    productosEnCarrito = []
+    localStorage.setItem("carrito", productosEnCarrito)
+}
 
 // DOM
 
@@ -55,8 +68,9 @@ function mostrarOpciones(array){
       let agregarBtn = document.getElementById(`agregarBtn${opcion.id}`)
         agregarBtn.onclick = ()=>{
             agregarAlCarrito(opcion)
+      }
     }
-}}
+}
 // Función card de productos
 
 // Funciónes carrito
@@ -76,6 +90,7 @@ function cargarProductosCarrito(array){
         </div>
         `
         })
+
          //segundo forEach agregar function eliminar
      array.forEach((productoCarrito)=>{
         document.getElementById(`botonEliminar${productoCarrito.id}`).addEventListener("click", ()=>{
@@ -97,9 +112,9 @@ function cargarProductosCarrito(array){
             compraTotal(array)
         })
      })
-    compraTotal(array)
-}
 
+    compraTotal(array)
+    }
 
 // Agregar un producto al carrito
 function agregarAlCarrito(opcion){
@@ -116,6 +131,7 @@ function agregarAlCarrito(opcion){
     Toastify({
       text: "El producto se ha agregado al carrito!",
       duration: 3000,
+      gravity: "bottom",
       style: {
       background: "linear-gradient(to right, #085078, #85D8CE)",
       }
@@ -124,6 +140,7 @@ function agregarAlCarrito(opcion){
     Toastify({
       text: "El producto ya se encuentra en el carrito!",
       duration: 1500,
+      gravity: "bottom",
       style: {
       background: "linear-gradient(to right, #FF8008, #FFC837)",
       }
@@ -143,6 +160,18 @@ function compraTotal(array){
     precioTotal.innerHTML = `El total del carrito es <strong>${acumulador}</strong>`
 }
 
+//Boton pagar, no avanzar si no hay nada en el carrito
+pagarBtn.addEventListener("click", ()=>{
+  if(productosEnCarrito.length == 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Cart empty',
+      background: '#87189d',
+      color: '#ffde59'
+    })
+  }
+})
 
 //Confirmar compra
   //Modal ingreso de datos
@@ -172,7 +201,8 @@ let pagoModal = document.getElementById("btnConfirmarCompra").addEventListener("
   timer: 1500
 })
 //Limpiar Carrito
-    carritoModal.innerHTML = ""
+localStorage.setItem("carrito", "") //Vaciamos el carrito en Storage
+location. reload() //Recargamos la página para vaciar el carrito
 })
 
 // FUNCIONES

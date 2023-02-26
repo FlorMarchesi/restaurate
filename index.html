@@ -42,7 +42,7 @@
         <!-- En este Div se construye mediante JS todo el contenido del carrito -->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Pagar</button>
+            <button type="button" id="pagarBtn" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Pagar</button>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
             <form class="row g-3 needs-validation was-validated" novalidate="">
               <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationCustom01" value="Mark" required="">
+                <input type="text" class="form-control" id="validationCustom01" required="">
                 <div class="valid-feedback">
                   Se ve bien!
                 </div>
@@ -84,7 +84,7 @@
                 <label for="validationCustom05" class="form-label">CP</label>
                 <input type="number" class="form-control" id="validationCustom05" required="">
                 <div class="invalid-feedback">
-                  Por favro ingrese su Código Postal.
+                  Por favor ingrese su Código Postal.
                 </div>
               </div>
               <div>
@@ -92,7 +92,7 @@
                 <label for="validationCustom03" class="form-label">Número de Tarjeta</label>
                 <input type="number" class="form-control" id="validationCustom03" required="">
                 <div class="invalid-feedback">
-                  Por favro ingrese un número válido.
+                  Por favor ingrese un número válido.
                 </div>
               </div>
               </div>
@@ -109,19 +109,16 @@
               </div>
             </form>
           </div>
-      <!-- Formulario de Compra -->
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" data-bs-dismiss="modal" id="btnConfirmarCompra" class="btn btn-success btn-primary">Confirmar pedido</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" data-bs-dismiss="modal" id="btnConfirmarCompra" class="btn btn-success btn-primary">Confirmar pedido</button>
           </div>
+      <!-- Formulario de Compra -->
         </div>
       </div>
     </div>
   <!-- Modal Rellenar datos de compra -->
   <!-- Modal Carrito -->
-
-
-
 
   <main>
     <p>Si estas buscando un menú personalizado, estas en el lugar indicado!</p>

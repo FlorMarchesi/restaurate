@@ -9,29 +9,29 @@ class Menu {
     }
   }
 // ARRAY
-const opciones = []
+let opciones = []
 
-// Platos
-const opcion1 = new Menu(1, "Milanesas a la Napolitana", 12, "milanesaNapolitana.png")
-const opcion2 = new Menu(2, "Pastel de papa", 15, "pastelPapa.png")
-const opcion3 = new Menu(3, "6 Empanadas de Carne", 20, "empanadasCarne.png")
-const opcion4 = new Menu(4, "6 Empanadas de Jamón y Queso", 20, "empanadasJQ.png")
-const opcion5 = new Menu(5, "Torre de Panqueques", 15, "torrePanqueques.png")
+const cargarOpciones = async () => {
+    const response = await fetch("productos.json") //La ruta es relativa del HTML al JSON y no al class.js
+    const data = await response.json()
+    for(let producto of data){
+        let nuevoProducto = new Menu(producto.id, producto.nombre, producto.precio, producto.image)
+        opciones.push(nuevoProducto)
+    }
+    console.log(opciones)
+    localStorage.setItem("opciones", JSON.stringify(opciones))
+}
 
-// Bebidas
-const opcion6 = new Menu(6, "Jugo natural de Naranja 500ml", 5, "jugoNaranja.png")
-const opcion7 = new Menu(7, "Cerveza 500ml", 9, "cerveza.png")
-const opcion8 = new Menu(8, "Coca-Cola 500ml", 4.5, "coca.png")
-const opcion9 = new Menu(9, "Té Helado 500ml", 4, "te.png")
-const opcion10 = new Menu(10, "Agua 1L", 4.5, "agua.png")
+//Evaluamos si existe algo en el Storage (y entra en el if), o no hay nada (entra en el else)
+if(localStorage.getItem("opciones")){
 
-// Postre
-const opcion11 = new Menu(11, "Tiramisú", 8, "tiramisu.png")
-const opcion12 = new Menu(12, "Selva Negra", 8, "selvaNegra.png")
-const opcion13 = new Menu(13, "Tarta de Queso", 9, "tartaQueso.png")
+    for(let producto of JSON.parse(localStorage.getItem("opciones"))){
+        let productoStorage = new Menu(producto.id, producto.nombre, producto.precio, producto.image)
+        opciones.push(productoStorage)
+    }
+    console.log(opciones)
+}else{
+    console.log("Seteamos por primera vez, entra sólo en la primera vez")
+    cargarOpciones()
 
-// Agregamos los datos al array
-opciones.push(opcion1,opcion2,opcion3,opcion4,opcion5,opcion6,opcion7,opcion8,opcion9,opcion10,opcion11,opcion12,opcion13)
-
-
-
+}

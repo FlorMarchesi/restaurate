@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "nombre": "Milanesas a la Napolitana",
+    "precio": 12,
+    "image": "milanesaNapolitana.png"
+  },
+
+  {
+    "id": 2,
+    "nombre": "Pastel de papa",
+    "precio": 15,
+    "image": "pastelPapa.png"
+  },
+  {
+    "id": 3,
+    "nombre": "6 Empanadas de Carne",
+    "precio": 20,
+    "image": "empanadasCarne.png"
+  },
+  {
+    "id": 4,
+    "nombre": "6 Empanadas de Jamón y Queso",
+    "precio": 20,
+    "image": "empanadasJQ.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Torre de Panqueques",
+    "precio": 15,
+    "image":"torrePanqueques.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Jugo natural de Naranja 500ml",
+    "precio": 5,
+    "image": "jugoNaranja.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Cerveza 500ml",
+    "precio": 9,
+    "image": "cerveza.png"
+  },
+  {
+    "id": 8,
+    "nombre": "Coca-Cola 500ml",
+    "precio": 4.5,
+    "image": "coca.png"
+  },
+  {
+    "id": 9,
+    "nombre": "Té Helado 500ml",
+    "precio": 4,
+    "image": "te.png"
+  },
+  {
+    "id": 10,
+    "nombre": "Agua 1L",
+    "precio": 4.5,
+    "image": "agua.png"
+  },
+  {
+    "id": 11,
+    "nombre": "Tiramisú",
+    "precio": 8,
+    "image": "tiramisu.png"
+  },
+  {
+    "id": 12,
+    "nombre": "Selva Negra",
+    "precio": 8,
+    "image": "selvaNegra.png"
+  },
+  {
+    "id": 13,
+    "nombre": "Tarta de Queso",
+    "precio": 9,
+    "image": "tartaQueso.png"
+  }
+]

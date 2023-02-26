@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Toastify -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+ <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <title>Restaurate</title>
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Restaurate</a>
+  </nav>
+
+<form id="form" class="row g-3 needs-validation" novalidate>
+    <div class="col-sm-6">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control shadow-none" id="nombre" value="">
+    </div>
+    <div class="col-sm-6">
+      <label for="direccion" class="form-label">Dirección</label>
+      <input type="text" class="form-control shadow-none" id="direccion" value="">
+    </div>
+    <div class="col-sm-6">
+      <label for="ciudad" class="form-label">Ciudad</label>
+      <input type="text" class="form-control shadow-none" id="ciudad" value="">
+    </div>
+  <div class="col-12">
+    <button id="btnCancelar" class="btn btn-primary" type="button">Cancelar</button>
+    <button id="btnConfirmar" class="btn btn-primary" type="submit">Confirmar Compra</button>
+  </div>
+</form>
+
+   <!-- SCRIPT-->
+  <!-- Script para poder enlazar íconos Font Awesome -->
+  <script src="https://kit.fontawesome.com/f3fcaf10f2.js" crossorigin="anonymous"></script>
+  <!--Script de Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+<!-- Script Sweet Alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--Script Toastify -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- Script JS propio -->
+
+  <script src="../js/class.js"></script>
+  <script src="../js/form.js"></script>
+
+</body>
+</html>

@@ -29,9 +29,8 @@ if(localStorage.getItem("opciones")){
         let productoStorage = new Menu(producto.id, producto.nombre, producto.precio, producto.image)
         opciones.push(productoStorage)
     }
-    console.log(opciones)
 }else{
-    console.log("Seteamos por primera vez, entra sólo en la primera vez")
+    //Seteamos por primera vez
     cargarOpciones()
 
 }

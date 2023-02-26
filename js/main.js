@@ -12,26 +12,20 @@ let carritoBtn = document.getElementById("idCarritoBtn")
 let carritoModal = document.getElementById("idCarritoModal")
 // Boton pagar
 let pagarBtn = document.getElementById("pagarBtn")
-// Productos en el carrito
-/* console.log(JSON.parse(localStorage.getItem("carrito")))
-let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [] // OPERADOR OR
 
-productosEnCarrito = [] && localStorage.setItem("carrito", productosEnCarrito) // OPERADOR AND */ //Dejó de funcionar y no encuentro solución
-
-let productosEnCarrito
-if(localStorage.getItem("carrito")){
-    productosEnCarrito = JSON.parse(localStorage.getItem("carrito"))
-    /* initCartHTML(productosEnCarrito)
-    cantidadCarrito.innerText = productosEnCarrito.reduce((acc, cant) => acc + cant.quantity, 0)
-    console.log(cantidadCarrito) */
-}else{
-    productosEnCarrito = []
-    localStorage.setItem("carrito", productosEnCarrito)
-}
+//Finalizar compra formulario
+let formCompra = document.getElementById("modalFinalizarCompra")
 
 // DOM
 
+
+
+
 // FUNCIONES
+
+
+
+// PÁGINA PRINCIPAL
 
 // Función card de productos
 function mostrarOpciones(array){
@@ -73,6 +67,10 @@ function mostrarOpciones(array){
 }
 // Función card de productos
 
+// PÁGINA PRINCIPAL
+
+
+// CARRITO
 // Funciónes carrito
 function cargarProductosCarrito(array){
     carritoModal.innerHTML = ""
@@ -156,65 +154,67 @@ function compraTotal(array){
     console.log(acumulador)
     //Precio Total
     precioTotal.innerHTML = ""
-    precioTotal.innerHTML = `No hay productos agregados`
     precioTotal.innerHTML = `El total del carrito es <strong>${acumulador}</strong>`
 }
+// CARRITO
+// FUNCIONES
 
+
+
+// EVENTOS
+
+//Storage
+// Productos en el carrito
+let productosEnCarrito
+if(localStorage.getItem("carrito")){
+    productosEnCarrito = JSON.parse(localStorage.getItem("carrito"))
+}else{
+    productosEnCarrito = []
+    localStorage.setItem("carrito", productosEnCarrito)
+}
+//Storage
+
+//CARRITO
 //Boton pagar, no avanzar si no hay nada en el carrito
 pagarBtn.addEventListener("click", ()=>{
-  if(productosEnCarrito.length == 0) {
+  //Si no hay nada en el carrito tira error
+  if (productosEnCarrito.length == 0) {
     Swal.fire({
       icon: 'error',
       title: 'Error',
-      text: 'Cart empty',
+      text: 'No hay productos en el carrito',
       background: '#87189d',
       color: '#ffde59'
     })
+  }else{
+    let timerInterval
+    Swal.fire({
+      title: 'Cargando pago',
+      timer: 2000,
+      timerProgressBar: true,
+      color: '#87189d',
+      didOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+          Swal.getTimerLeft()
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      //Al finalizar el timeOut() redirijo al checkout:
+      if (result.dismiss === Swal.DismissReason.timer) {
+        window.open('pages/paginaPago.html', '_self')//Redirijo a página de pago
+      }
+    })
   }
-})
+  })
 
-//Confirmar compra
-  //Modal ingreso de datos
-  /* pagoModal.addEventListener("click", ()=>{
-    //Alerta Confirmación pedido
-    document.getElementById("btnEnviarCompra")
-  swal(
-    "Gracias!",
-    "Pedido confirmado",
-    "success")
-
-  //Validar lo datos (click)
-
-//Limpiar Carrito
-    carritoModal.innerHTML = ""
-}) */
-
-
-let pagoModal = document.getElementById("btnConfirmarCompra").addEventListener("click", ()=>{
-
-  //Alerta Confirmación pedido
-  Swal.fire({
-  title:'Gracias!',
-  text: 'Pedido confirmado',
-  icon: 'success',
-  showConfirmButton: false,
-  timer: 1500
-})
-//Limpiar Carrito
-localStorage.setItem("carrito", "") //Vaciamos el carrito en Storage
-location. reload() //Recargamos la página para vaciar el carrito
-})
-
-// FUNCIONES
-
-// EVENTOS
 //Abrir carrito
 carritoBtn.addEventListener("click", ()=>{
   cargarProductosCarrito(productosEnCarrito)
 })
 
 // EVENTOS
-
 mostrarOpciones(opciones);
-
-

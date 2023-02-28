@@ -1,43 +1,95 @@
-*{
-    font-size: 18px;
-      margin: 0;
-      padding: 0;
+* {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
 }
-body {
-  background-color: $grey-hell;
-  color: $black;
-  nav{
-    background-color: $black;
-    color: $grey-hell;
-  }
-  h1 {
-    color: $black;
-  }
 
-  main{
-    section{
-      display: flex;
-      img{
-        width: 150px;
-        height: auto;
-        margin: 2rem;
+body {
+  font-family: 'Mynerve', cursive;
+  color: $black;
+  background-image: url("../assets/fondo.png");
+  background-attachment: fixed;
+
+  header {
+
+    #imgLogo {
+      width: 100px;
+      height: auto;
+      margin: 1rem 0 0 2rem;
+    }
+
+    #idCarritoBtn {
+      color: $charcoal;
+      background-color: transparent;
+      border-style: none;
+
+      i {
+        font-size: 2rem;
+        margin-right: 2rem;
       }
     }
-    p{
-      text-align: center;
-      font-size: 1.25rem;
-      padding: 1.2rem;
-      margin: 0 3rem;
-    }
-    .botonesNavScroll{
-      background-color: $grey-hell;
-      color: $black;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, .5);
+    opacity: 0.93;
+    margin-top: 2rem;
+    background-color: $sunglow;
+    padding: 1rem 2rem;
+    color: $charcoal;
+    a {
+      font-size: 1.2rem;
+      color: $charcoal;
+      text-decoration: none;
     }
   }
-  h4{
-    margin: 3rem;
-    padding: 2rem;
-    background-color: $black;
-    color: $grey-hell;
+
+    main {
+        display: flex;
+        justify-content: center;
+        img {
+          width: 150px;
+          height: auto;
+          padding: 0.5rem;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+        }
+        .card{
+          background-color: $sunglow;
+          .card-body{
+              text-align: center;
+              box-shadow: 5px 5px 10px rgba(0, 0, 0, .5);
+              p{
+                color: $zomp;
+              }
+              button{
+                background-color: $zomp;
+                color: $sunglow;
+                box-shadow: 3px 3px 6px rgba(0, 0, 0, .5);
+              }
+          }
+
+        }
+    }
+
+    footer {
+      background-color: $charcoal;
+      color: $sunglow;
+      opacity: 0.8;
+      .listaFooter {
+        list-style: none;
+
+        li {
+          margin: 0 1rem;
+
+          i {
+            font-size: 1.5rem;
+            color: $sunglow;
+          }
+        }
+      }
+    }
+
   }
-}

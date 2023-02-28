@@ -40,7 +40,7 @@ function mostrarOpciones(array){
         <div id="card${opcion.id}" class="card" style="width: 18rem;">
           <img src="assets/${opcion.image}" class="card-img-top" alt="${opcion.nombre}">
           <div class="card-body">
-            <h5 class="card-title">${opcion.nombre}</h5>
+            <div><h5 class="card-title">${opcion.nombre}</h5></div>
             <p class="card-text">Precio  ${opcion.precio} $USD</p>
             <button id="agregarBtn${opcion.id}" class="btn btn-outline-success">Agregar al carrito</button>
           </div>

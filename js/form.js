@@ -1,5 +1,8 @@
-//FINALIZAR COMPRA
+
 let form = document.getElementById("form")
+let btnCancelar = document.getElementById("btnCancelar")
+
+//FINALIZAR COMPRA
 form.addEventListener("submit", e=>{
     e.preventDefault()
   //Evaluamos si hay info
@@ -8,7 +11,8 @@ form.addEventListener("submit", e=>{
       icon: 'error',
       title: 'Error',
       text: 'No ha rellenado todos los campos.',
-      color: '#87189d'
+      color: '#a1c181ff',
+      background: '#000000'
     })
   }else{
     //Alerta Confirmación pedido
@@ -28,8 +32,6 @@ form.addEventListener("submit", e=>{
   )
 }
 })
-
-let btnCancelar = document.getElementById("btnCancelar")
 
 btnCancelar.addEventListener("click", ()=>{
 

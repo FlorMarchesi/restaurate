@@ -79,6 +79,7 @@
         <p>Derechos reservados</p>
         <p>Diseño: Florencia Marchesi</p>
         <ul class="listaFooter d-flex">
+          <!-- No llevan a ninguna dirección porque no es una tienda real. En caso de que lo fuera estarían las RRSS linkeadas -->
           <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
           <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
         </ul>
@@ -94,24 +95,21 @@
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Su Pedido</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <!-- En este Div se construye mediante JS todo el contenido del carrito -->
-      <div>
-        <div id="idCarritoModal" class="modal-body"></div>
-        <p id="precioTotal"></p>
-      </div>
-      <!-- En este Div se construye mediante JS todo el contenido del carrito -->
+        <!-- En este Div se construye mediante JS todo el contenido del carrito -->
+        <div class="contenidoCarrito">
+          <div id="idCarritoModal" class="modal-body"></div>
+          <p id="precioTotal"></p>
+        </div>
+        <!-- En este Div se construye mediante JS todo el contenido del carrito -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" id="pagarBtn" class="btn btn-primary" data-bs-toggle="modal">Pagar</button>
+        <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" id="pagarBtn" class="btn btn-confirmar" data-bs-toggle="modal">Pagar</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Modal Carrito -->
-
-
-
 
 
   <!-- SCRIPT-->

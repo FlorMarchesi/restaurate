@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
-/* CSS HEX */
 * {
   font-size: 18px;
   margin: 0;
@@ -7,7 +6,7 @@
 
 body {
   font-family: 'Mynerve', cursive;
-  color: #2d3436;
+  color: #000000;
   background-image: url("../assets/fondo.png");
   background-attachment: fixed; }
   body header #imgLogo {
@@ -44,7 +43,7 @@ body {
       padding: 0.5rem;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); }
     body main .card {
-      background-color: #fcca46ff; }
+      background-color: rgba(252, 203, 70, 0.53); }
       body main .card .card-body {
         text-align: center;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); }
@@ -65,7 +64,45 @@ body {
         body footer .listaFooter li i {
           font-size: 1.5rem;
           color: #fcca46ff; }
+  body .btn-cerrar {
+    background-color: rgba(35, 61, 77, 0.413);
+    color: #fcca46ff; }
+  body .btn-confirmar {
+    background-color: #233d4dff;
+    color: #fcca46ff; }
 
 .modal-content {
   color: #fcca46ff;
-  background-color: #233d4dff; }
+  background-color: rgba(97, 155, 138, 0.916); }
+  .modal-content .modal-header {
+    background-color: #233d4dff; }
+  .modal-content .contenidoCarrito #idCarritoModal .cardProducto {
+    background-color: rgba(35, 61, 77, 0.413);
+    border-style: none; }
+  .modal-content .contenidoCarrito #idCarritoModal h5 {
+    font-size: 1.2rem;
+    color: #fe7f2dff; }
+  .modal-content .contenidoCarrito #idCarritoModal p {
+    display: inline-block; }
+  .modal-content .contenidoCarrito #precioTotal {
+    text-align: center;
+    color: #233d4dff;
+    font-size: 1.35rem; }
+    .modal-content .contenidoCarrito #precioTotal span {
+      font-weight: 900;
+      color: #000000;
+      font-size: 1.5rem; }
+
+.bodyPago main {
+  height: 100vh; }
+  .bodyPago main form {
+    width: 80%;
+    background-color: rgba(97, 155, 138, 0.176);
+    border-radius: 15px;
+    padding: 0 2rem;
+    margin-bottom: 2rem; }
+    .bodyPago main form a {
+      text-decoration: none;
+      color: #fcca46ff; }
+  .bodyPago main input, .bodyPago main button {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); }

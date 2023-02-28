@@ -1,4 +1,34 @@
+//Body del carrito
 .modal-content{
   color: $sunglow;
-  background-color: $charcoal;
+  background-color: $zomp-transparent-carrito;
+  .modal-header{
+    background-color: $charcoal;
+  }
+//Tarjetas
+    .contenidoCarrito{
+      #idCarritoModal{
+        .cardProducto{
+          background-color: $charcoal-transparent;
+          border-style: none;
+        }
+        h5{
+          font-size: 1.2rem;
+          color: $pumpkin;
+        }
+        p{
+          display: inline-block;
+        }
+      }
+      #precioTotal{
+        text-align: center;
+        color: $charcoal;
+        font-size: 1.35rem;
+        span{
+          font-weight: 900;
+          color: $black;
+          font-size: 1.5rem;
+        }
+      }
+    }
 }

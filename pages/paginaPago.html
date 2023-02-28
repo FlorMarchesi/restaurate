@@ -1,53 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- Toastify -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- Toastify -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
- <!-- CSS -->
+  <!-- Logo de pestaña -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+  <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
 
   <title>Restaurate</title>
 </head>
-<body>
-  <header class="container-fluid justify-content-between align-items-center
-     d-flex">
+
+<body class="bodyPago">
+  <header class="container-fluid justify-content-center align-items-center
+     d-flex mb-5">
     <a class="d-flex" href="../index.html"><img id="imgLogo" src="../assets/logo.png" alt="Restaurate"></a>
   </header>
+  <main>
 
-<form id="form" class="row g-3 needs-validation" novalidate>
-    <div class="col-sm-6">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control shadow-none" id="nombre" value="">
-    </div>
-    <div class="col-sm-6">
-      <label for="direccion" class="form-label">Dirección</label>
-      <input type="text" class="form-control shadow-none" id="direccion" value="">
-    </div>
-    <div class="col-sm-6">
-      <label for="ciudad" class="form-label">Ciudad</label>
-      <input type="text" class="form-control shadow-none" id="ciudad" value="">
-    </div>
-  <div class="col-12">
-    <button id="btnCancelar" class="btn btn-primary" type="button">Cancelar</button>
-    <button id="btnConfirmar" class="btn btn-primary" type="submit">Confirmar Compra</button>
-  </div>
-</form>
+    <form id="form" class="row g-3 needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" value="">
+        </div>
+        <div class="col-sm-6">
+          <label for="direccion" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="direccion" value="">
+        </div>
+        <div class="col-sm-6">
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="ciudad" value="">
+        </div>
+      </div>
 
-   <!-- SCRIPT-->
+      <hr>
+
+      <h4>Información de Pago</h4>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control " placeholder="R. Martinez">
+          <small class="text-muted">Introduzca su nombre como aparece en la tarjeta</small>
+        </div>
+
+        <div class="col-md-6">
+          <label for="numTarjeta" class="form-label">Numero de la tarjeta</label>
+          <input type="text" inputmode="numeric" class="form-control"  placeholder="0000000000000000">
+        </div>
+
+        <div class="col-md-3">
+          <label for="expiracion" class="form-label">Expiración</label>
+          <input type="text" class="form-control"  placeholder="MM/AA">
+        </div>
+
+        <div class="col-md-3">
+          <label for="codigoSecreto" class="form-label">Código Secreto</label>
+          <input type="text" inputmode="numeric" maxlength="3" class="form-control" placeholder="XXX">
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <div class="col-12">
+        <button id="btnCancelar" class="btn btn-cerrar" type="button"><a href="../index.html">Cancelar</a></button>
+        <button class="btn btn-cerrar" type="reset">Borrar</button>
+        <button id="btnConfirmar" class="btn btn-confirmar" type="submit">Confirmar Compra</button>
+      </div>
+    </form>
+
+
+    <!-- <form id="form" class="row g-3 needs-validation" novalidate>
+      <div class="col-sm-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control shadow-none" id="nombre" value="">
+      </div>
+      <div class="col-sm-6">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control shadow-none" id="direccion" value="">
+      </div>
+      <div class="col-sm-6">
+        <label for="ciudad" class="form-label">Ciudad</label>
+        <input type="text" class="form-control shadow-none" id="ciudad" value="">
+      </div>
+      <div class="col-12">
+        <button id="btnCancelar" class="btn btn-primary" type="button">Cancelar</button>
+        <button id="btnConfirmar" class="btn btn-primary" type="submit">Confirmar Compra</button>
+      </div>
+    </form> -->
+  </main>
+
+  <footer class="container-fluid pt-3 px-3">
+    <div class="align-bottom d-flex justify-content-between align-items-center">
+      <p>Derechos reservados</p>
+      <p>Diseño: Florencia Marchesi</p>
+      <ul class="listaFooter d-flex">
+        <!-- No llevan a ninguna dirección porque no es una tienda real. En caso de que lo fuera estarían las RRSS linkeadas -->
+        <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- SCRIPT-->
   <!-- Script para poder enlazar íconos Font Awesome -->
   <script src="https://kit.fontawesome.com/f3fcaf10f2.js" crossorigin="anonymous"></script>
   <!--Script de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-  </script>
-<!-- Script Sweet Alert -->
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+  <!-- Script Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!--Script Toastify -->
+  <!--Script Toastify -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <!-- Script JS propio -->
 
@@ -55,4 +126,5 @@
   <script src="../js/form.js"></script>
 
 </body>
+
 </html>
